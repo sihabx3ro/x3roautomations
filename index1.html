@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>X3RO AUTOMATIONS - AI per Aziende Locali</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #121218;
+            --primary-neon: #00FFFF; /* Cyan */
+            --secondary-neon: #FF00E6; /* Magenta */
+            --text-light: #F5F5F5;
+            --text-muted: #A0A0A0;
+            --border-color: #30303C;
+            --card-bg: #1E1E26;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background: var(--bg-dark) radial-gradient(ellipse at top, rgba(0, 255, 255, 0.08), transparent 50%) no-repeat;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            padding: 20px 0;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+            color: var(--text-light);
+        }
+        
+        .logo-container .logo-text {
+            font-size: 1.4rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+        
+        .logo-svg {
+            width: 50px;
+            height: 50px;
+        }
+
+        /* Hero Section */
+        #hero {
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        #hero h1 {
+            font-size: 3.2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            background: linear-gradient(90deg, var(--primary-neon), var(--secondary-neon));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 15px rgba(0, 255, 255, 0.5), 0 0 25px rgba(255, 0, 230, 0.5);
+        }
+
+        #hero p {
+            font-size: 1.125rem;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            color: var(--text-muted);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-image: linear-gradient(90deg, var(--primary-neon), var(--secondary-neon));
+            color: var(--bg-dark);
+            padding: 14px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: none;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 0 25px var(--primary-neon), 0 0 40px var(--secondary-neon);
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 50px;
+            color: var(--primary-neon);
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+        }
+        
+        /* What We Build Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary-neon);
+            box-shadow: 0 0 25px rgba(0, 255, 255, 0.3);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary-neon);
+        }
+        
+        .service-card p {
+            color: var(--text-muted);
+        }
+
+        /* Why Choose Us Section */
+        #why-us {
+            background-color: var(--card-bg);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            text-align: left;
+        }
+
+        .benefit-card {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .benefit-icon {
+            width: 48px;
+            height: 48px;
+            color: var(--primary-neon);
+        }
+        
+        .benefit-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-light);
+        }
+
+        .benefit-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Contact Section */
+        #contact {
+            text-align: center;
+        }
+        
+        #contact p {
+            font-size: 1.125rem;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+        }
+
+        #contact a.contact-email {
+            color: var(--primary-neon);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.2rem;
+            transition: text-shadow 0.3s ease;
+        }
+        
+        #contact a.contact-email:hover {
+            text-decoration: underline;
+            text-shadow: 0 0 10px var(--primary-neon);
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .social-icons a {
+            color: var(--text-muted);
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: var(--primary-neon);
+            transform: translateY(-3px) scale(1.1);
+        }
+        
+        .social-icons svg {
+            width: 28px;
+            height: 28px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 30px 0;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            #hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+
+            .logo-container .logo-text {
+                display: none; /* Hide text on small screens to save space */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-content">
+            <a href="#" class="logo-container">
+                <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <g transform="translate(0, -5)">
+                        <path fill="#F5F5F5" d="M88.6,26.4,53.4,6.2c-2.1-1.2-4.6-1.2-6.7,0L11.4,26.4c-2.1,1.2-3.4,3.5-3.4,5.9V77.7c0,2.4,1.3,4.7,3.4,5.9l35.3,20.2c2.1,1.2,4.6,1.2,6.7,0l35.3-20.2c2.1-1.2,3.4-3.5,3.4-5.9V32.3C92,29.9,90.7,27.6,88.6,26.4ZM50,89.5C29.8,89.5,13.4,73.1,13.4,52.9c0-11.3,4.5-21.6,12.1-29.2L50,38.2,74.5,23.7C82.1,31.3,86.6,41.6,86.6,52.9,86.6,73.1,70.2,89.5,50,89.5Z"/>
+                        <path fill="#F5F5F5" d="M49.9,42.5c-9.8,0-17.8,8-17.8,17.8s8,17.8,17.8,17.8,17.8-8,17.8-17.8-8-17.8-17.8-17.8Zm0,29c-6.2,0-11.2-5-11.2-11.2s5-11.2,11.2-11.2,11.2,5,11.2,11.2-5,11.2-11.2,11.2Z" transform="translate(0.1, -5.3)"/>
+                        <path fill="#00FFFF" d="M38.8,55c0-4.1,3.3-7.4,7.4-7.4s7.4,3.3,7.4,7.4-3.3,7.4-7.4,7.4-7.4-3.3-7.4-7.4Z" transform="translate(-3.9, -1.8)"/>
+                        <path fill="#00FFFF" d="M64.6,41.1c-3.5,0-6.3,2.8-6.3,6.3s2.8,6.3,6.3,6.3,6.3-2.8,6.3-6.3-2.8-6.3-6.3-6.3Z" transform="translate(-3.3, -3.6)"/>
+                        <path fill="#00FFFF" d="m72.8 35.5c-0.3 0-0.6 0.1-0.9 0.2l-4.5 2.6c-0.7 0.4-1 1.3-0.6 2 0.4 0.7 1.3 1 2 0.6l4.5-2.6c0.7-0.4 1-1.3 0.6-2-0.3-0.5-0.8-0.8-1.4-0.8zm5.2 7.2-1.9 1.1c-0.7 0.4-1.4 0.2-1.8-0.5l-2.4-4.1c-0.4-0.7-0.2-1.4 0.5-1.8l1.9-1.1c0.7-0.4 1.4-0.2 1.8 0.5l2.4 4.1c0.4 0.7 0.2 1.4-0.5 1.8z"/>
+                    </g>
+                </svg>
+                <span class="logo-text">X3RO AUTOMATIONS</span>
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="container">
+                <h1>Automazioni AI per Aziende Locali</h1>
+                <p>Aiutiamo ristoranti e piccole imprese a risparmiare tempo con automazioni intelligenti e personalizzate, basate su n8n e GPT.</p>
+                <a href="mailto:x3roautomations@gmail.com?subject=Richiesta%20di%20Consulenza%20Gratuita" class="cta-button">Richiedi una Consulenza Gratuita</a>
+            </div>
+        </section>
+
+        <section id="services">
+            <div class="container">
+                <h2 class="section-title">Cosa Costruiamo</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <h3>Gestore Recensioni AI</h3>
+                        <p>Genera e pubblica automaticamente risposte personalizzate alle recensioni di Google, interagendo con i clienti 24/7 e migliorando la tua reputazione online.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Bot di Prenotazione Intelligenti</h3>
+                        <p>Un chatbot intelligente che gestisce prenotazioni, risponde a domande comuni e acquisisce messaggi dei clienti sul tuo sito web e sui social media.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Flussi di Lavoro Personalizzati</h3>
+                        <p>Colleghiamo i tuoi strumenti essenziali—come Google Sheets, chat social e CRM—in flussi di lavoro automatizzati e fluidi che eliminano le attività manuali.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="why-us">
+            <div class="container">
+                <h2 class="section-title">Il Tuo Partner per l'Automazione</h2>
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <svg class="benefit-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                        <h3>Implementazione Rapida</h3>
+                        <p>Rendiamo operative le tue automazioni personalizzate in tempi brevi, offrendo valore e facendoti risparmiare tempo fin dal primo giorno.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <svg class="benefit-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/><line x1="16" y1="8" x2="2" y2="22"/><line x1="17.5" y1="15" x2="9" y2="15"/></svg>
+                        <h3>Costruito per Te</h3>
+                        <p>Le nostre soluzioni sono pensate su misura per le piccole imprese, garantendo una perfetta aderenza alle tue specifiche esigenze operative.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <svg class="benefit-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        <h3>Processo Trasparente</h3>
+                        <p>Crediamo nella comunicazione chiara. Riceverai preventivi diretti e sarai sempre informato durante l'intero processo di sviluppo.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <svg class="benefit-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        <h3>Supporto Continuo</h3>
+                        <p>La nostra partnership non termina con il lancio. Forniamo un supporto affidabile per garantire che le tue automazioni funzionino sempre al meglio.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <h2 class="section-title">Contattaci</h2>
+                <p>Pronto ad automatizzare il tuo successo? Contattaci per una consulenza gratuita, senza impegno e per un preventivo personalizzato.</p>
+                <a href="mailto:x3roautomations@gmail.com" class="contact-email">x3roautomations@gmail.com</a>
+                <div class="social-icons">
+                    <a href="#" aria-label="X/Twitter">
+                       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    </a>
+                    <a href="#" aria-label="LinkedIn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 X3RO AUTOMATIONS — Automatizziamo il successo locale.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
